@@ -1,4 +1,3 @@
-
 /* 1. Imposta Lato come font predefinito per tutto il corpo del documento */
 * {
   font-family: "Lato", sans-serif;
@@ -9,29 +8,68 @@ h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: "Orbitron", sans-serif; 
 }
+
 :root {
+  --yellow: rgb(255, 232, 31);
+  --black:  rgb(23, 23, 23);
+  --white: rgb(244, 244, 244);
+}
 
---yellow: rgb(255, 232, 31);
---black:  rgb(23, 23, 23);
---white: rgb(244, 244, 244);
+.bg-yellow { background-color: var(--yellow); }
+.bg-black { background-color: var(--black); }
+.bg-white { background-color: var(--white); }
+.text-yellow { color: var(--yellow); }
+.text-black { color: var(--black); }
+.text-white { color: var(--white); }
 
-}
-.bg-yellow {
-  background-color: var(--yellow);
-
-}
-.bg-black {
-  background-color: var(--black);
-}
-.bg-white {
-  background-color: var(--white);
-}
-.text-yellow {
+/* --- Navbar: Effetto Hover Laser Sottile --- */
+.navbar .nav-link {
   color: var(--yellow);
+  font-weight: 800;
+  position: relative; /* Fondamentale per posizionare la linea sotto */
+  padding-bottom: 5px; /* Spazio per la linea sotto il testo */
+  transition: color 0.3s ease;
 }
-.text-black {
-  color: var(--black);
+
+/* Lo stato hover del testo (leggero bagliore) */
+.navbar .nav-link:hover {
+  color: #fff; /* Il testo diventa bianco in hover */
+  text-shadow: 0 0 5px rgba(255, 232, 31, 0.5);
 }
-.text-white {
-  color: var(--white);
+
+/* La linea laser di base (invisibile) */
+.navbar .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%; /* Parte dal centro */
+  width: 0;   /* Larghezza iniziale 0 */
+  height: 2px; /* Altezza della linea (laser sottile) */
+  background-color: var(--yellow); /* Colore laser */
+  box-shadow: 0 0 8px var(--yellow), 0 0 15px var(--yellow); /* Effetto neon */
+  transition: all 0.4s ease-out; /* Velocità e tipo di animazione */
+  /* Arrotondamento delle punte */
+  border-radius: 2px;
+}
+
+/* L'animazione in hover: la linea si espande */
+.navbar .nav-link:hover::after {
+  width: 100%; /* Si espande fino a tutta la larghezza del link */
+  left: 0;     /* Torna a sinistra per allinearsi */
+}
+.navbar .nav-link:hover {
+  transform: skewX(-5deg); /* Leggera inclinazione tipica dei font sci-fi */
+  color: #fff;
+  text-shadow: 0 0 5px rgba(255, 232, 31, 0.5);
+}
+.navbar {
+    padding-top: 30px;    /* Aumenta lo spazio sopra */
+    padding-bottom: 20px; /* Aumenta lo spazio sotto */
+    transition: all 0.5s ease; /* Fondamentale per farla ingrandire/rimpicciolire fluidamente */
+}
+.navbar.navbar-scrolled {
+    background-color: black; !important;  /* Diventa nera quando scrolli */
+    padding-top: 15px;    /* Si rimpicciolisce un po' */
+    padding-bottom: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5); /* Aggiunge ombra per vederla bene */
 }
