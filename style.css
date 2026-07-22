@@ -35,6 +35,7 @@ h1, h2, h3, h4, h5, h6,
 .navbar .nav-link:hover {
   color: #fff; /* Il testo diventa bianco in hover */
   text-shadow: 0 0 5px rgba(255, 232, 31, 0.5);
+  transform: skewX(-5deg); /* Leggera inclinazione tipica dei font sci-fi */
 }
 
 /* La linea laser di base (invisibile) */
@@ -48,7 +49,6 @@ h1, h2, h3, h4, h5, h6,
   background-color: var(--yellow); /* Colore laser */
   box-shadow: 0 0 8px var(--yellow), 0 0 15px var(--yellow); /* Effetto neon */
   transition: all 0.4s ease-out; /* Velocità e tipo di animazione */
-  /* Arrotondamento delle punte */
   border-radius: 2px;
 }
 
@@ -57,22 +57,20 @@ h1, h2, h3, h4, h5, h6,
   width: 100%; /* Si espande fino a tutta la larghezza del link */
   left: 0;     /* Torna a sinistra per allinearsi */
 }
-.navbar .nav-link:hover {
-  transform: skewX(-5deg); /* Leggera inclinazione tipica dei font sci-fi */
-  color: #fff;
-  text-shadow: 0 0 5px rgba(255, 232, 31, 0.5);
-}
+
 .navbar {
     padding-top: 30px;    /* Aumenta lo spazio sopra */
     padding-bottom: 20px; /* Aumenta lo spazio sotto */
     transition: all 0.5s ease; /* Fondamentale per farla ingrandire/rimpicciolire fluidamente */
 }
+
 .navbar.navbar-scrolled {
-    background-color: black; !important;  /* Diventa nera quando scrolli */
+    background-color: var(--black) !important;  /* Diventa nera quando scrolli */
     padding-top: 15px;    /* Si rimpicciolisce un po' */
     padding-bottom: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.5); /* Aggiunge ombra per vederla bene */
 }
+
 .background-image {
   background-image: url('./media/Gemini_Generated_Image_fpy5udfpy5udfpy5.png');
   background-size: cover;
@@ -80,34 +78,14 @@ h1, h2, h3, h4, h5, h6,
   height: 100vh; /* Altezza della viewport */
   width: 100%;
 }
-.btn-custom{
-color: var(--yellow);
-background-color: var(--black);
-border: 2px solid var(--yellow);
-margin:0px 15px;
-padding:20px 30px;
 
-}/* Stile base delle colonne custom */
-.col-custom {
-  background-color: var(--bs-body-bg); /* o il colore di sfondo che preferisci per le card */
-  border: 4px solid var(--black); /* Margine/bordo nero attorno alle sezioni */
-  transition: all 0.3s ease; /* Transizione fluida */
-}
-
-/* Effetto hover: si alzano verso l'utente (translateY) e cambiano colore */
-/* Stile base delle colonne con sfondo giallo e bordo nero */
-.col-custom {
-  background-color: var(--yellow); 
-  border: 4px solid var(--black); 
-  transition: all 0.3s ease; 
-}
-
-/* Effetto hover: si alzano verso l'utente e invertono i colori (sfondo nero e testo giallo, o viceversa a seconda dei tuoi gusti) */
-.col-custom:hover {
-  background-color: var(--black);
+.btn-custom {
   color: var(--yellow);
-  transform: translateY(-10px); 
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); 
+  background-color: var(--black);
+  border: 2px solid var(--yellow);
+  margin: 0px 15px;
+  padding: 20px 30px;
+  transition: all 0.3s ease;
 }
 
 .btn-custom:hover {
@@ -116,4 +94,27 @@ padding:20px 30px;
   border: 2px solid var(--yellow);
   margin: 0px 15px;
   padding: 20px 30px;
+}
+
+/* Stile base delle colonne custom (Partono nere con testo giallo) */
+.col-custom {
+  background-color: var(--black); 
+  color: var(--yellow);
+  border: 4px solid var(--yellow); 
+  transition: all 0.3s ease; 
+} 
+
+/* Effetto Hover Inverso (Diventano gialle con testo nero al passaggio del mouse) */
+.col-custom:hover {
+  background-color: var(--yellow);
+  color: var(--black);
+  border: 4px solid var(--black);
+  transform: translateY(-10px); 
+  box-shadow: 0 10px 20px rgba(255, 232, 31, 0.2); 
+}
+.number {
+  font-size: 2em; /* Dimensione del numero */
+  font-weight: bold; /* Grassetto */
+  color: var(--yellow); /* Colore giallo */
+  margin-right: 10px; /* Spazio tra il numero e il testo */
 }
